@@ -1,0 +1,14 @@
+[package]
+authors = ["test <bonjour@gmail.com>"]
+descriptions = "a totally normal executable"
+edition = "2021"
+name = "rs"
+version = "1.0.0"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[profile.release]
+codegen-units = 1
+lto = true
+opt-level = "s"
+strip = true
